@@ -3,12 +3,29 @@
 // instead of defining our objects by coming up with concrete hierarchies,
 // define our objects based on the features we want
 
-function poop() { return '💩'; }
-function meow() { return 'meow...'; }
-function bark() { return 'woof!'; }
-function drive() { return true; }
-function clean() { return true; }
-function kill() { return true; }
+var poop = {
+  poop: function() { return '💩'; }
+};
+
+var meow = {
+  meow: function() { return 'meow...'; }
+};
+
+var bark = {
+  bark: function() { return 'woof!'; }
+};
+
+var drive = {
+  drive: function() { return true; }
+};
+
+var clean = {
+  clean: function() { return true; }
+};
+
+var kill = {
+  kill: function() { return true; }
+};
 
 function Cat() {
   // Object.assign takes an object (1st parameter; in this case, a new object)
@@ -16,34 +33,39 @@ function Cat() {
   // This is how we 'compose' our object definitions.
   return Object.assign(
     {},
-    { poop, meow }
+    poop,
+    meow
   );
 }
 
 function Dog() {
   return Object.assign(
     {},
-    { poop, bark }
+    poop,
+    bark
   );
 }
 
 function RobotCleaner() {
   return Object.assign(
     {},
-    { drive, clean }
+    drive,
+    clean
   );
 }
 
 function RobotKiller() {
   return Object.assign(
     {},
-    { drive, kill }
+    drive,
+    kill
   );
 }
 
 function RobotDog() {
   return Object.assign(
     {},
-    { drive, bark }
+    drive,
+    bark
   );
 }
